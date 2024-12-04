@@ -5,38 +5,38 @@ using UnityEngine;
 
 public class Matriz : MonoBehaviour
 {
-    // Atributos de la clase
+    
     float[,] mat;      
     public int rows;    
     public int columns; 
 
-    // Constructor: Inicializa una matriz de dimensiones específicas
-    public Matriz(int _rows, int _columns)
+    
+    public Matriz(int _rows, int _columns)//Crea una matriz con el número de columnas y filas dado
     {
         rows = _rows;
         columns = _columns;
-        mat = new float[rows, columns]; // Crea la matriz con el tamaño dado
+        mat = new float[rows, columns]; 
     }
 
-    // Método para obtener un valor de la matriz en una posición específica
-    public float GetAt(int x, int y)
+    
+    public float GetAt(int x, int y)//Regresa el valor de la posicion dada
     {
         return mat[x, y];
     }
 
-    // Método para establecer un valor en una posición específica
-    public void SetAt(int x, int y, float v)
+   
+    public void SetAt(int x, int y, float v)//Asigna un valor en la posicion dada
     {
         mat[x, y] = v;
     }
 
-    // Sobrecarga del operador + para sumar dos matrices
-    public static Matriz operator +(Matriz m1, Matriz m2)
+  
+    public static Matriz operator +(Matriz m1, Matriz m2)//Suma las matrices
     {
-        // Verifica que las matrices tengan las mismas dimensiones
+        
         if (m1.rows == m2.rows && m1.columns == m2.columns)
         {
-            // Itera sobre cada posición y realiza la suma
+           
             for (int i = 0; i < m1.rows; i++)
             {
                 for (int j = 0; j < m1.columns; j++)
@@ -45,22 +45,22 @@ public class Matriz : MonoBehaviour
                 }
             }
         }
-        return m1; // Devuelve la primera matriz modificada
+        return m1; 
     }
 
-    // Sobrecarga del operador * para multiplicar dos matrices
-    public static Matriz operator *(Matriz m1, Matriz m2)
+    
+    public static Matriz operator *(Matriz m1, Matriz m2)//Multplica las matrices
     {
-        // Matriz vacía que se devuelve si las dimensiones no son compatibles
+        
         Matriz mat2 = new Matriz(0, 0);
 
-        // La multiplicación solo es válida si las columnas de m1 son iguales a las filas de m2
+        
         if (m1.columns == m2.rows)
         {
-            // Crea una nueva matriz para almacenar el resultado
+            
             Matriz mat3 = new Matriz(m1.rows, m2.columns);
 
-            // Realiza la multiplicación de matrices
+            
             for (int i = 0; i < m1.rows; i++)
             {
                 for (int k = 0; k < m2.columns; k++)
@@ -71,18 +71,18 @@ public class Matriz : MonoBehaviour
                     }
                 }
             }
-            return mat3; // Devuelve el resultado
+            return mat3; 
         }
         else
         {
-            // Error: las dimensiones no son compatibles
+           
             UnityEngine.Debug.LogError("FAIL");
             return mat2;
         }
     }
 
-    // Inicializa la matriz con valores aleatorios entre -100 y 100
-    public void RandomInitialize()
+    
+    public void RandomInitialize()//Da valores aletorios a la matriz
     {
         for (int i = 0; i < rows; i++)
         {
@@ -93,10 +93,10 @@ public class Matriz : MonoBehaviour
         }
     }
 
-    // Devuelve la transpuesta de la matriz (intercambia filas y columnas)
-    public Matriz Transpose()
+ 
+    public Matriz Transpose()//Hace la transpuesta de la matriz
     {
-        Matriz m = new Matriz(columns, rows); // Crea una nueva matriz con dimensiones invertidas
+        Matriz m = new Matriz(columns, rows); 
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
@@ -107,17 +107,17 @@ public class Matriz : MonoBehaviour
         return m;
     }
 
-    // Realiza un cruzamiento de un solo punto entre dos matrices
-    public static Matriz SinglePointCross(Matriz m1, Matriz m2)
+
+    public static Matriz SinglePointCross(Matriz m1, Matriz m2)//Hace la reproduccion de matrices 
     {
         Matriz mr = new Matriz(m1.rows, m1.columns); 
         int crosspointC = UnityEngine.Random.Range(0, m1.columns); 
         int crosspointR = UnityEngine.Random.Range(0, m1.rows);    
 
-        // Verifica que las matrices tengan las mismas dimensiones
+
         if (m1.columns == m2.columns && m1.rows == m2.rows)
         {
-            // Llena la nueva matriz según los puntos de cruce
+
             for (int i = 0; i < m1.rows; i++)
             {
                 for (int j = 0; j < m1.columns; j++)
@@ -132,14 +132,14 @@ public class Matriz : MonoBehaviour
                     }
                 }
             }
-            return mr; // Devuelve la matriz resultante
+            return mr; 
         }
-        UnityEngine.Debug.LogError("BAD SINGLEPOINTCROSS"); // Error si las dimensiones no coinciden
+        UnityEngine.Debug.LogError("BAD SINGLEPOINTCROSS"); 
         return null;
     }
 
-    // Mutación: cambia un número aleatorio de valores en la matriz
-    public void Mutate(int mut)
+   
+    public void Mutate(int mut)//Realiza la mutación de genes
     {
         for (int i = 0; i < mut; i++)
         {
@@ -149,8 +149,7 @@ public class Matriz : MonoBehaviour
         }
     }
 
-    // Imprime todos los valores de la matriz en la consola
-    public void print()
+    public void print()//Imprime los valores que hay en la matriz
     {
         for (int i = 0; i < rows; i++)
         {
