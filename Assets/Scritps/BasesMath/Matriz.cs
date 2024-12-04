@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Matriz : MonoBehaviour
 {
-    
+    //Variables
     float[,] mat;      
     public int rows;    
     public int columns; 
