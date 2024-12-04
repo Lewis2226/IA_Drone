@@ -32,11 +32,11 @@ public class Plane : MonoBehaviour
         Debug.DrawLine(pos, pos + front, Color.red);
         Debug.DrawLine(pos, left, Color.blue);
         Debug.DrawLine(pos, right, Color.green);
-        Debug.DrawLine(pos, pos + up, Color.magenta);
-        Debug.DrawLine(pos, pos + down, Color.cyan);
+        Debug.DrawLine(pos, up, Color.magenta);
+        Debug.DrawLine(pos, down, Color.cyan);
     }
 
-    private void FixedUpdate()
+    private void FixedUpdate()//Revisa si hay algo en alguno de las direcciones
     {
         RaycastHit hit;
         RaycastHit hit1;
@@ -81,7 +81,6 @@ public class Plane : MonoBehaviour
             downDistance = hit4.distance/25;
         }
 
-
-        Debug.Log($"Distancia al frente {frontDistance}, distancia al la izquierda {leftDistance}, distancia a la derecha {rightDistance}, distancia a arriba {upDistance} y la distancia a abajo{downDistance}");
+        //Debug.Log($"Distancia al frente {frontDistance}, distancia al la izquierda {leftDistance}, distancia a la derecha {rightDistance}, distancia a arriba {upDistance} y la distancia a abajo{downDistance}");
     }
 }
