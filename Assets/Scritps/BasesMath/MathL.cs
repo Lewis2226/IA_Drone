@@ -3,9 +3,9 @@ using UnityEngine;
 
 public static class MathL 
 {
-    public static double Sigmoid(double value)//Hace la función de activación Sigmoid  
+    public static float Sigmoid(double value)//Hace la función de activación Sigmoid  
     {
-        return 1.0f / (1.0f + (float)Math.Exp(-value)); ;
+        return 1.0f / (1.0f + (float)Math.Exp(-value));
     }
 
     public static double HyperbolicTangtent(double x)//Hace la función de activación HyperbolicTangtent
@@ -15,9 +15,9 @@ public static class MathL
         else return Math.Tanh(x);
     }
 
-    public static double ReLu(float x)//Hace la función de activación ReLu
+    public static float ReLu(float y)//Hace la función de activación ReLu
     {
-        return Mathf.Max(0, x);
+        return Mathf.Max(0, y);
     }
 
     public static float ELU(float x)//Hace la función de activación ELU
