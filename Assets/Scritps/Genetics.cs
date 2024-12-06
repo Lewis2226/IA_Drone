@@ -59,7 +59,7 @@ public class Genetics : MonoBehaviour
         Planes = newsPlanes;
     }
 
-    public void NextEpoch()
+     void NextEpoch()
     {
         Planes.Sort((x, y) => x.GetComponent<IA>().score.CompareTo(y.GetComponent<IA>().score));
         List<GameObject> PlanesNews;
@@ -132,18 +132,22 @@ public class Genetics : MonoBehaviour
         GameObject newObject = Instantiate(planePrefab) as GameObject;
         GameObject copy = newObject;
         copy.GetComponent<IA>().Initialize();
-        IA ia1 = c.GetComponent<IA>();
+        IA ia = c.GetComponent<IA>();
 
-        for (int i = 0; i < ia1.biases.Length; i++)
+        for (int i = 0; i < ia.biases.Length; i++)
         {
-            copy.GetComponent<IA>().biases[i] = ia1.biases[i];
+            copy.GetComponent<IA>().biases[i] = ia.biases[i];
         }
 
-        for (int i = 0; i < ia1.pesos.Length; i++)
+        for (int i = 0; i < ia.pesos.Length; i++)
         {
-            copy.GetComponent<IA>().pesos[i] = ia1.pesos[i];
+            copy.GetComponent<IA>().pesos[i] = ia.pesos[i];
         }
         return copy;
     }
     
+    public void NewEpoch()
+    {
+        NextEpoch();
+    }
 }

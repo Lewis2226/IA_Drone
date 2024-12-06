@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7053984415178230267}
   m_Layer: 0
   m_Name: piso floor
-  m_TagString: Dead
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7846, y: 7.1450534, z: 5.4363}
+  m_LocalScale: {x: 0.7846, y: 15.4876175, z: 5.4363}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

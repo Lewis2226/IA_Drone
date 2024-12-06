@@ -140,7 +140,7 @@ public class IA : MonoBehaviour
 
     void ActivationEnd(Matriz m)
     {
-        acceleration = (float)MathL.HyperbolicTangtent(m.GetAt(0, 0));
+        acceleration = (float)MathL.HyperbolicTangtent(m.GetAt(0, 1));
         height = MathL.ReLu(m.GetAt(0,1));
         rotation = MathL.Sigmoid(m.GetAt(1, 0));
     }
