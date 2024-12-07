@@ -1301,8 +1301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1986a671fd5c0ee42a6bfa33281889c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capasNum: 2
-  neuronasNum: 20
+  capasNum: 5
+  neuronasNum: 10
   pesos: []
   biases: []
   score: 0

@@ -16489,7 +16489,7 @@ MonoBehaviour:
   "probMutaci\xF3n": 0.75
   mejoresCromosomas: 5
   peoresCromosomas: 4
-  cromosomasParaMutar: 20
+  cromosomasParaMutar: 4
   mutacionesPorCromosomas: 7
 --- !u!4 &769696003
 Transform:

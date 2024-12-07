@@ -21,17 +21,17 @@ public class Plane : MonoBehaviour
 
     void Update() //Asigna los valores a los vectores de las direcciones 
     {
-        front = transform.TransformDirection(Vector3.forward) * 25;
-        left = transform.TransformDirection(new Vector3(-1f, 0, 1)) * 25;
-        right = transform.TransformDirection(new Vector3(1f, 0, 1)) * 25;
-        up = transform.TransformDirection(Vector3.up) * 25;
-        down = transform.TransformDirection(Vector3.down) * 25;
+        front = transform.TransformDirection(Vector3.forward) * 30;
+        left = transform.TransformDirection(new Vector3(.5f, 0, 1)) * 30;
+        right = transform.TransformDirection(new Vector3(-.5f, 0, 1)) * 30;
+        up = transform.TransformDirection(new Vector3(0f, .5f, 1)) * 30;
+        down = transform.TransformDirection(new Vector3(0f, -.5f, 1)) * 30;
 
         pos = new Vector3(transform.position.x, transform.position.y+1.5f, transform.position.z);
 
         Debug.DrawLine(pos, pos + front, Color.red);
-        Debug.DrawLine(pos, left, Color.blue);
-        Debug.DrawLine(pos, right, Color.green);
+        Debug.DrawLine(pos, pos + left, Color.blue);
+        Debug.DrawLine(pos, pos + right, Color.green);
         Debug.DrawLine(pos, pos + up, Color.magenta);
         Debug.DrawLine(pos, pos + down, Color.cyan);
     }
