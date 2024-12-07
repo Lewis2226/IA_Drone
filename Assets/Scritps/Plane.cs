@@ -32,8 +32,8 @@ public class Plane : MonoBehaviour
         Debug.DrawLine(pos, pos + front, Color.red);
         Debug.DrawLine(pos, left, Color.blue);
         Debug.DrawLine(pos, right, Color.green);
-        Debug.DrawLine(pos, up, Color.magenta);
-        Debug.DrawLine(pos, down, Color.cyan);
+        Debug.DrawLine(pos, pos + up, Color.magenta);
+        Debug.DrawLine(pos, pos + down, Color.cyan);
     }
 
     private void FixedUpdate()//Revisa si hay algo en alguno de las direcciones

@@ -1246,9 +1246,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9145154981547783785}
   - component: {fileID: 5267427928237762986}
+  - component: {fileID: 321880974816678880}
   - component: {fileID: 4621098278435437045}
   - component: {fileID: 721567754890409695}
-  - component: {fileID: 321880974816678880}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -1289,6 +1289,23 @@ MonoBehaviour:
   rightDistance: 0
   upDistance: 0
   downDistance: 0
+--- !u!114 &321880974816678880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916589885371906609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1986a671fd5c0ee42a6bfa33281889c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capasNum: 2
+  neuronasNum: 20
+  pesos: []
+  biases: []
+  score: 0
 --- !u!54 &4621098278435437045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1314,7 +1331,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &721567754890409695
 BoxCollider:
@@ -1337,23 +1354,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.4473314, y: 1.7298343, z: 5.654156}
   m_Center: {x: -0.11543894, y: 1.4657651, z: -0.70717216}
---- !u!114 &321880974816678880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3916589885371906609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1986a671fd5c0ee42a6bfa33281889c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  capasNum: 3
-  neuronasNum: 10
-  pesos: []
-  biases: []
-  score: 0
 --- !u!1 &4175963373856702640
 GameObject:
   m_ObjectHideFlags: 0

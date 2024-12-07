@@ -63,7 +63,7 @@ public class Genetics : MonoBehaviour
     {
         Planes.Sort((x, y) => x.GetComponent<IA>().score.CompareTo(y.GetComponent<IA>().score));
         List<GameObject> PlanesNews;
-        PlanesNews = new List<GameObject> ();
+        PlanesNews = new List<GameObject>();
 
         for(int i = 0 ; i <mejoresCromosomas; i++)
         {

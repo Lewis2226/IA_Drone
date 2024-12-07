@@ -15,7 +15,7 @@ public class IA : MonoBehaviour
     float acceleration;
     float height;
     float rotation;
-    bool alive;
+    bool alive = true;
 
     Vector3 lastPostion;
     float distanceTravel;
@@ -37,7 +37,7 @@ public class IA : MonoBehaviour
                 biases[i] = new Matriz(1, 3);
                 biases[i].RandomInitialize();
             }
-            else if (i == capasNum -1) 
+            else if (i == (capasNum -1)) 
             {
                 pesos[i] = new Matriz(2, neuronasNum);
                 pesos[i].RandomInitialize();
@@ -70,7 +70,7 @@ public class IA : MonoBehaviour
                 biases[i] = new Matriz(1, 3);
                 biases[i].RandomInitialize();
             }
-            else if (i == capasNum - 1)
+            else if (i == (capasNum - 1))
             {
                 pesos[i] = new Matriz(2, neuronasNum);
                 pesos[i].RandomInitialize();
@@ -104,7 +104,7 @@ public class IA : MonoBehaviour
             inputs.SetAt(0, 4, DD);
             resolve();
 
-            transform.Translate((Vector3.forward + Vector3.up)* acceleration);
+            transform.Translate((Vector3.forward)* acceleration);
             transform.eulerAngles = transform.eulerAngles + new Vector3(0, (rotation * 90) * 0.02f, 0);
             distanceTravel += Vector3.Distance(transform.position, lastPostion);
             lastPostion = transform.position;
