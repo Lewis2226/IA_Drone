@@ -7,6 +7,7 @@ public class Genetics : MonoBehaviour
 {
     //Variables
     public TextMeshProUGUI textoEpocas;
+    public TextMeshProUGUI textoVelocidad;
     public int epocas = 1;
     public GameObject planePrefab;
     public static int planeAlive;
@@ -25,6 +26,7 @@ public class Genetics : MonoBehaviour
     
     void Start()
     {
+        NormalSpeed();
         planeAlive = poblacion;
         Planes = new List<GameObject>();
         newsPlanes = new List<GameObject>();
@@ -157,12 +159,12 @@ public class Genetics : MonoBehaviour
     public void NormalSpeed()
     {
         Time.timeScale = 1.0f;
-        Debug.Log("La velocidad es normal");
+        textoVelocidad.text = "La velocidad esta normal";
     }
 
     public void SpeedBoost()
     {
         Time.timeScale = 2.0f;
-        Debug.Log("La velocidad es el doble");
+        textoVelocidad.text = "La velocidad esta al doble";
     }
 }
