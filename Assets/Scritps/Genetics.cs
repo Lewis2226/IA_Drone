@@ -78,8 +78,8 @@ public class Genetics : MonoBehaviour
 
         while (k < poblacion)
         {
-            int n1 = UnityEngine.Random.Range(0, k - 1);
-            int n2 = UnityEngine.Random.Range(0, k - 1);
+            int n1 = Random.Range(0, k - 1);
+            int n2 = Random.Range(0, k - 1);
             PlanesNews.Add(Cross(PlanesNews[n1], PlanesNews[n2]));
             k++;
         }
@@ -87,16 +87,16 @@ public class Genetics : MonoBehaviour
         //Mutaciones
         for (int i = 0; i < cromosomasParaMutar; i++)
         {
-            //Debug.Log("1");
-            int n1 = UnityEngine.Random.Range(0, poblacion - 1);
+           
+            int n1 = Random.Range(0, poblacion - 1);
             IA iaN = PlanesNews[n1].GetComponent<IA>();
 
-            //Debug.Log("2");
+            
             for (int j = 0; j < iaN.biases.Length; j++)
             {
                 PlanesNews[n1].GetComponent<IA>().biases[j].Mutate(mutacionesPorCromosomas);
             }
-            //Debug.Log("3");
+            
             for (int j = 0; j < iaN.pesos.Length; j++)
             {
                 PlanesNews[n1].GetComponent<IA>().pesos[j].Mutate(mutacionesPorCromosomas);
