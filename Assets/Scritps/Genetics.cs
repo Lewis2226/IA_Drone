@@ -146,8 +146,23 @@ public class Genetics : MonoBehaviour
         return copy;
     }
     
-    public void NewEpoch()
+    public void NewGeneration()
     {
         NextEpoch();
+        DeletePlane();
+        planeAlive = poblacion;
+        epocas++;
+    }
+
+    public void NormalSpeed()
+    {
+        Time.timeScale = 1.0f;
+        Debug.Log("La velocidad es normal");
+    }
+
+    public void SpeedBoost()
+    {
+        Time.timeScale = 2.0f;
+        Debug.Log("La velocidad es el doble");
     }
 }

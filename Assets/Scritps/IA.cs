@@ -111,6 +111,8 @@ public class IA : MonoBehaviour
             accelerationPR += acceleration;
             accelerationProm++;
             SetScore();
+
+            //Se deberia tomar en cuenta tanto la alutra que hay libre hacia arriba y la hacia abajo y con eso poder determinar que hacer 
         }
 
     }
