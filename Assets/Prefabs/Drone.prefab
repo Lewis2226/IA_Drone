@@ -1301,10 +1301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1986a671fd5c0ee42a6bfa33281889c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capasNum: 5
-  neuronasNum: 10
-  pesos: []
-  biases: []
+  numeroCapas: 2
+  numeroNeuronas: 10
   score: 0
 --- !u!54 &4621098278435437045
 Rigidbody:
@@ -1352,8 +1350,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.4473314, y: 1.7298343, z: 5.654156}
-  m_Center: {x: -0.11543894, y: 1.4657651, z: -0.70717216}
+  m_Size: {x: 2.8558292, y: 1.3074105, z: 5.184037}
+  m_Center: {x: -0.15737343, y: 1.2545532, z: -0.47211266}
 --- !u!1 &4175963373856702640
 GameObject:
   m_ObjectHideFlags: 0
