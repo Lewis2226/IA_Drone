@@ -44,7 +44,7 @@ public class IA : MonoBehaviour
             {
                 pesos[i] = new Matriz(2, numeroNeuronas);
                 pesos[i].RandomInitialize();
-                biases[i] = new Matriz(1, 2);
+                biases[i] = new Matriz(1, 3);
                 biases[i].RandomInitialize();
             }
             else
@@ -77,7 +77,7 @@ public class IA : MonoBehaviour
             {
                 pesos[i] = new Matriz(2, numeroNeuronas);
                 pesos[i].RandomInitialize();
-                biases[i] = new Matriz(1, 2);
+                biases[i] = new Matriz(1, 3);
                 biases[i].RandomInitialize();
             }
             else
