@@ -12,7 +12,7 @@ public class IA : MonoBehaviour
     public int numeroNeuronas = 10;
     public Matriz[] pesos;
     public Matriz[] biases;
-    Matriz Inout;
+    Matriz Input;
     float acceleration;
     float rotation;
     public float score;
@@ -29,15 +29,15 @@ public class IA : MonoBehaviour
     {
         pesos = new Matriz[numeroCapas];
         biases = new Matriz[numeroCapas];
-        Inout = new Matriz(1, 3);
+        Input = new Matriz(1, 5);
 
         for (int i = 0; i < numeroCapas; i++)
         {
             if (i == 0)
             {
-                pesos[i] = new Matriz(3, numeroNeuronas);
+                pesos[i] = new Matriz(5, numeroNeuronas);
                 pesos[i].RandomInitialize();
-                biases[i] = new Matriz(1, 3);
+                biases[i] = new Matriz(1, 5);
                 biases[i].RandomInitialize();
             }
             else if (i == numeroCapas - 1)
@@ -62,15 +62,15 @@ public class IA : MonoBehaviour
     {
         pesos = new Matriz[numeroCapas];
         biases = new Matriz[numeroCapas];
-        Inout = new Matriz(1, 3);
+        Input = new Matriz(1, 5);
 
         for (int i = 0; i < numeroCapas; i++)
         {
             if (i == 0)
             {
-                pesos[i] = new Matriz(3, numeroNeuronas);
+                pesos[i] = new Matriz(5, numeroNeuronas);
                 pesos[i].RandomInitialize();
-                biases[i] = new Matriz(1, 3);
+                biases[i] = new Matriz(1, 5);
                 biases[i].RandomInitialize();
             }
             else if (i == numeroCapas - 1)
@@ -98,9 +98,13 @@ public class IA : MonoBehaviour
             float FD = GetComponent<Plane>().frontDistance;
             float RD = GetComponent<Plane>().rightDistance;
             float LD = GetComponent<Plane>().leftDistance;
-            Inout.SetAt(0, 0, FD);
-            Inout.SetAt(0, 1, RD);
-            Inout.SetAt(0, 2, LD);
+            float UD = GetComponent<Plane>().upDistance;
+            float DD = GetComponent<Plane>().downDistance;
+            Input.SetAt(0, 0, FD);
+            Input.SetAt(0, 1, RD);
+            Input.SetAt(0, 2, LD);
+            Input.SetAt(0, 3, UD);
+            Input.SetAt(0, 4, DD);
             resolve();
 
             transform.Translate(Vector3.forward * acceleration);
@@ -120,7 +124,7 @@ public class IA : MonoBehaviour
     void resolve()
     {
         Matriz result;
-        result = Activation((Inout * pesos[0]) + biases[0]);
+        result = Activation((Input * pesos[0]) + biases[0]);
         for (int i = 1; i < numeroCapas; i++)
         {
             result = (Activation((pesos[i] * result.Transpose()) + biases[i]));
@@ -152,7 +156,9 @@ public class IA : MonoBehaviour
         float FD = GetComponent<Plane>().frontDistance;
         float RD = GetComponent<Plane>().rightDistance;
         float LD = GetComponent<Plane>().leftDistance;
-        float s = (FD + RD + LD) / 3;
+        float UD = GetComponent<Plane>().upDistance;
+        float DD = GetComponent<Plane>().downDistance;
+        float s = (FD + RD + LD + UD + DD) / 5;
         s += ((distanceTraveled * 8) + (acceleration));
         score += (float)Math.Pow(s, 2);
     }
