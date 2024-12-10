@@ -15,6 +15,7 @@ public class IA : MonoBehaviour
     Matriz Input;
     float acceleration;
     float rotation;
+    float heigth;
     public float score;
     bool dead = false;
 
@@ -107,8 +108,26 @@ public class IA : MonoBehaviour
             Input.SetAt(0, 4, DD);
             resolve();
 
+            if (UD < 1 && DD == 1)
+            {
+                heigth = -1f;
+            }
+            else if (DD < 1 && UD == 1)
+            {
+                heigth = 1f;
+            }
+            else
+            {
+                heigth = 0f;
+            }
+
             transform.Translate(Vector3.forward * acceleration);
             transform.eulerAngles = transform.eulerAngles + new Vector3(0, (rotation * 90) * 0.02f, 0);
+
+
+            Vector3 position = transform.position;
+            position.y = Mathf.Clamp(position.y + heigth * 0.1f, 0, 10);
+            transform.position = position;
 
             distanceTraveled += Vector3.Distance(transform.position, lastPosition);
             lastPosition = transform.position;
@@ -149,6 +168,8 @@ public class IA : MonoBehaviour
     {
         rotation = (float)MathL.HyperbolicTangtent(m.GetAt(0, 0));
         acceleration = MathL.Sigmoid(m.GetAt(1, 0));
+        heigth = MathL.ReLu(m.GetAt(1, 0));
+
     }
 
     void SetScore()//FitnessFunction
