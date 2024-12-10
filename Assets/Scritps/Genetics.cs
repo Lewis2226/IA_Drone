@@ -123,7 +123,7 @@ public class Genetics : MonoBehaviour
 
         for (int i = 0; i < ia1.pesos.Length; i++)
         {
-            cross.GetComponent<IA>().pesos[i] = Matriz.SinglePointCross(ia1.pesos[i], ia2.pesos[i]);
+            cross.GetComponent<IA>().pesos[i] =  ia1.pesos[i] + ia2.pesos[i];
         }
         return cross;
     }
