@@ -15,12 +15,12 @@ public static class MathL
         else return Math.Tanh(x);
     }
 
-    public static float ReLu(float y)//Hace la función de activación ReLu
+    public static float ReLu(float y)
     {
         return Mathf.Max(0, y);
     }
 
-    public static float ELU(float x)//Hace la función de activación ELU
+    public static float ELU(float x)
     {
         float alpha = 1.0f;
         return x > 0 ? x : alpha * (Mathf.Exp(x) - 1);

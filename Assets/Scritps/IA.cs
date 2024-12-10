@@ -134,8 +134,6 @@ public class IA : MonoBehaviour
             accelerationPR += acceleration;
             accelerationProm++;
             SetScore();
-
-            //Se deberia tomar en cuenta tanto la alutra que hay libre hacia arriba y la hacia abajo y con eso poder determinar que hacer 
         }
 
     }
@@ -158,7 +156,15 @@ public class IA : MonoBehaviour
         {
             for (int j = 0; j < m.columns; j++)
             {
-                m.SetAt(i, j, (float)MathL.HyperbolicTangtent(m.GetAt(i, j)));
+                if(m.GetAt(i, j) < 0)
+                {
+                    m.SetAt(i, j, MathL.ELU(m.GetAt(i, j)));
+                }
+                else
+                {
+                    m.SetAt(i, j, MathL.Sigmoid(m.GetAt(i, j)));
+                }
+                
             }
         }
         return m;
@@ -167,9 +173,7 @@ public class IA : MonoBehaviour
     void ActivationLast(Matriz m)
     {
         rotation = (float)MathL.HyperbolicTangtent(m.GetAt(0, 0));
-        acceleration = MathL.Sigmoid(m.GetAt(1, 0));
-        heigth = MathL.ReLu(m.GetAt(1, 0));
-
+        acceleration = MathL.ELU(m.GetAt(1, 0));
     }
 
     void SetScore()//FitnessFunction
@@ -179,8 +183,10 @@ public class IA : MonoBehaviour
         float LD = GetComponent<Plane>().leftDistance;
         float UD = GetComponent<Plane>().upDistance;
         float DD = GetComponent<Plane>().downDistance;
-        float s = (FD + RD + LD + UD + DD) / 5;
-        s += ((distanceTraveled * 8) + (acceleration));
+        float h = UD + DD;
+        float s = (FD + RD + LD) / 3;
+        s = s / h;
+        s += ((distanceTraveled * 6) + (acceleration));
         score += (float)Math.Pow(s, 2);
     }
 
