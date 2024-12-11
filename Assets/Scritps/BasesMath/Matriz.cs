@@ -66,6 +66,22 @@ public class Matriz
         }
     }
 
+    public static Matriz DivisionMatriz(Matriz m1)
+    {
+        Matriz m3 = new Matriz(0, 0);
+        float diviresult;
+        for(int i = 0; i < m1.columns; i++)
+        {
+            for(int j = 0; j < m1.rows; j++)
+            {
+                diviresult = m1.GetAt(i, j) / 2;
+                m3.SetAt(i, j, diviresult);
+            }
+        }
+
+        return m3;
+    }
+
 
     public void RandomInitialize()
     {
@@ -104,6 +120,7 @@ public class Matriz
                 {
                     if (i < crosspointC || j < crosspointR)
                     {
+                        
                         mr.SetAt(i, j, m1.GetAt(i, j));
                     }
                     else
