@@ -19,13 +19,13 @@ public class IA : MonoBehaviour
     public float score;
     bool dead = false;
 
-    //ForFitness
+    //Puntaje
     private Vector3 lastPosition;
     private float distanceTraveled = 0;
     float accelerationPR = 0;
     int accelerationProm = 0;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         pesos = new Matriz[numeroCapas];
@@ -176,7 +176,7 @@ public class IA : MonoBehaviour
         acceleration = MathL.ELU(m.GetAt(1, 0));
     }
 
-    void SetScore()//FitnessFunction
+    void SetScore()
     {
         float FD = GetComponent<Plane>().frontDistance;
         float RD = GetComponent<Plane>().rightDistance;
@@ -186,7 +186,7 @@ public class IA : MonoBehaviour
         float h = UD + DD;
         float s = (FD + RD + LD) / 3;
         s = s / h;
-        s += ((distanceTraveled * 6) + (acceleration));
+        s += ((distanceTraveled * 6) + (acceleration * 2));
         score += (float)Math.Pow(s, 2);
     }
 
