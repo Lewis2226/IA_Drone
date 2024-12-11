@@ -59,7 +59,7 @@ public class IA : MonoBehaviour
 
     }
 
-    public void Initialize()
+    public void Initialize()//Crea las matrices de los pesos y biases con valorea aletorios
     {
         pesos = new Matriz[numeroCapas];
         biases = new Matriz[numeroCapas];
@@ -91,7 +91,6 @@ public class IA : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!dead)
@@ -150,7 +149,7 @@ public class IA : MonoBehaviour
     }
 
 
-    Matriz Activation(Matriz m)
+    Matriz Activation(Matriz m)//Hace la acitvacion de cada neurona de la caja negra
     {
         for (int i = 0; i < m.rows; i++)
         {
@@ -170,13 +169,13 @@ public class IA : MonoBehaviour
         return m;
     }
 
-    void ActivationLast(Matriz m)
+    void ActivationLast(Matriz m)//Hace la activacion de los Outputs
     {
         rotation = (float)MathL.HyperbolicTangtent(m.GetAt(0, 0));
         acceleration = MathL.ELU(m.GetAt(1, 0));
     }
 
-    void SetScore()
+    void SetScore()//Califica a los drones
     {
         float FD = GetComponent<Plane>().frontDistance;
         float RD = GetComponent<Plane>().rightDistance;
@@ -190,7 +189,7 @@ public class IA : MonoBehaviour
         score += (float)Math.Pow(s, 2);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)//Verifica si no han chocado con algo
     {
         if (other.tag == "Dead")
         {

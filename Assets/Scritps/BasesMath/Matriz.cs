@@ -89,7 +89,7 @@ public class Matriz
         {
             for (int j = 0; j < columns; j++)
             {
-                mat[i, j] = UnityEngine.Random.Range(-100f, 100f);
+                mat[i, j] = UnityEngine.Random.Range(-200f, 200f);
             }
         }
     }
@@ -107,7 +107,7 @@ public class Matriz
         return m;
     }
 
-    public static Matriz SinglePointCross(Matriz m1, Matriz m2)
+    public static Matriz Reproduccion(Matriz m1, Matriz m2)
     {
         Matriz mr = new Matriz(m1.rows, m1.columns);
         
@@ -117,14 +117,14 @@ public class Matriz
             {
                 for (int j = 0; j < m1.columns; j++)
                 {
-                   if(m1.GetAt(i,j) > 0 && m1.GetAt(i,j) < 100)
+                   if(m1.GetAt(i,j) > 0 && m1.GetAt(i,j) < 200)
                    {
-                        mr.SetAt(i, j, (m1.GetAt(i, j) + m2.GetAt(i, j) / 2));
+                       mr.SetAt(i, j, (m1.GetAt(i, j) + m2.GetAt(i, j) / 2));
                    }
-                    else
-                    {
-                        mr.SetAt(i, j, (m1.GetAt(i, j) - m2.GetAt(i, j) * 2));
-                    }
+                   else
+                   {
+                       mr.SetAt(i, j, (m1.GetAt(i, j) - m2.GetAt(i, j) * 2));
+                   }
                      
                 }
             }
@@ -139,7 +139,16 @@ public class Matriz
         {
             int n1 = UnityEngine.Random.Range(0, rows - 1);
             int n2 = UnityEngine.Random.Range(0, columns - 1);
-            mat[n1, n2] = mat[n1, n2] + UnityEngine.Random.Range(-100, 100);
+            
+            if(n1 % 2 != 0)
+            {
+                mat[n1, n2] = mat[n1, n2] + UnityEngine.Random.Range(-200, 200);
+            }
+            else
+            {
+                mat[n1, n2] = mat[n1, n2] - UnityEngine.Random.Range(-200, 200);
+            }
+            
         }
     }
 

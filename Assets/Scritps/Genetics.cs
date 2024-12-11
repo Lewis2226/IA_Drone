@@ -51,7 +51,7 @@ public class Genetics : MonoBehaviour
         }
     }
 
-    void DeletePlane()
+    void DeletePlane()//Elimina a la generacion anterior
     {
         for(int i = 0; i< Planes.Count; i++)
         {
@@ -61,7 +61,7 @@ public class Genetics : MonoBehaviour
         Planes = newsPlanes;
     }
 
-     void NextEpoch()
+     void NextEpoch()//Crea una nueva generacion 
     {
         Planes.Sort((x, y) => x.GetComponent<IA>().score.CompareTo(y.GetComponent<IA>().score));
         List<GameObject> PlanesNews;
@@ -107,7 +107,7 @@ public class Genetics : MonoBehaviour
         newsPlanes = PlanesNews;
     }
 
-    GameObject Cross(GameObject g1, GameObject g2)
+    GameObject Cross(GameObject g1, GameObject g2)//Hace la reproduccion de las drones
     {
 
         GameObject newObject = Instantiate(planePrefab) as GameObject;
@@ -118,18 +118,18 @@ public class Genetics : MonoBehaviour
 
         for (int i = 0; i < ia1.biases.Length; i++)
         {
-            cross.GetComponent<IA>().biases[i] = Matriz.SinglePointCross(ia1.biases[i], ia2.biases[i]);
+            cross.GetComponent<IA>().biases[i] = Matriz.Reproduccion(ia1.biases[i], ia2.biases[i]);
         }
 
         for (int i = 0; i < ia1.pesos.Length; i++)
         {
-            cross.GetComponent<IA>().pesos[i] = Matriz.SinglePointCross(ia1.pesos[i], ia2.pesos[i]);
+            cross.GetComponent<IA>().pesos[i] = Matriz.Reproduccion(ia1.pesos[i], ia2.pesos[i]);
         }
         return cross;
     }
     
 
-    GameObject Copy(GameObject c)
+    GameObject Copy(GameObject c)//Copia un dron
     {
         GameObject newObject = Instantiate(planePrefab) as GameObject;
         GameObject copy = newObject;
@@ -148,7 +148,7 @@ public class Genetics : MonoBehaviour
         return copy;
     }
     
-    public void NewGeneration()
+    public void NewGeneration()//Permite cambiar la generacion con el botón en UI
     {
         NextEpoch();
         DeletePlane();
@@ -156,19 +156,19 @@ public class Genetics : MonoBehaviour
         epocas++;
     }
 
-    public void NormalSpeed()
+    public void NormalSpeed()//Deja la velocidad con el valor normal
     {
         Time.timeScale = 1.0f;
         textoVelocidad.text = "1x";
     }
 
-    public void SpeedBoost()
+    public void SpeedBoost()//Cambia la velocidad al doble
     {
         Time.timeScale = 2.0f;
         textoVelocidad.text = "2x";
     }
 
-    public void Speed4()
+    public void Speed4()//Cambia la velocidad al cuádruple
     {
         Time.timeScale = 4.0f;
         textoVelocidad.text = "4x";
