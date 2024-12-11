@@ -41,7 +41,7 @@ public class Genetics : MonoBehaviour
     
     void Update()
     {
-        textoEpocas.text = $"Epoca {epocas.ToString()}";
+        textoEpocas.text = $"Época {epocas.ToString()}";
         if (planeAlive <= 0)
         {
             NextEpoch();
