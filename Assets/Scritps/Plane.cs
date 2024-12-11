@@ -30,10 +30,10 @@ public class Plane : MonoBehaviour
         pos = new Vector3(transform.position.x, transform.position.y+1.5f, transform.position.z);
 
         Debug.DrawLine(pos, pos + front, Color.red);
-        Debug.DrawLine(pos, pos + left, Color.blue);
-        Debug.DrawLine(pos, pos + right, Color.green);
-        Debug.DrawLine(pos, pos + up, Color.magenta);
-        Debug.DrawLine(pos, pos + down, Color.cyan);
+        Debug.DrawLine(pos, pos + left, Color.red);
+        Debug.DrawLine(pos, pos + right, Color.red);
+        Debug.DrawLine(pos, pos + up, Color.blue);
+        Debug.DrawLine(pos, pos + down, Color.blue);
     }
 
     private void FixedUpdate()//Revisa si hay algo en alguno de las direcciones

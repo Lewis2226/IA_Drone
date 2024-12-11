@@ -13,7 +13,7 @@ public class IA : MonoBehaviour
     public Matriz[] pesos;
     public Matriz[] biases;
     Matriz Input;
-    float acceleration;
+    public float acceleration;
     float rotation;
     float heigth;
     public float score;

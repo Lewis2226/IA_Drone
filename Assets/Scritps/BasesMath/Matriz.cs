@@ -110,28 +110,26 @@ public class Matriz
     public static Matriz SinglePointCross(Matriz m1, Matriz m2)
     {
         Matriz mr = new Matriz(m1.rows, m1.columns);
-        int crosspointC = UnityEngine.Random.Range(0, m1.columns);
-        int crosspointR = UnityEngine.Random.Range(0, m1.rows);
+        
         if (m1.columns == m2.columns && m1.rows == m2.rows)
         {
             for (int i = 0; i < m1.rows; i++)
             {
                 for (int j = 0; j < m1.columns; j++)
                 {
-                    if (i < crosspointC || j < crosspointR)
-                    {
-                        
-                        mr.SetAt(i, j, m1.GetAt(i, j));
-                    }
+                   if(m1.GetAt(i,j) > 0 && m1.GetAt(i,j) < 100)
+                   {
+                        mr.SetAt(i, j, (m1.GetAt(i, j) + m2.GetAt(i, j) / 2));
+                   }
                     else
                     {
-                        mr.SetAt(i, j, m2.GetAt(i, j));
+                        mr.SetAt(i, j, (m1.GetAt(i, j) - m2.GetAt(i, j) * 2));
                     }
+                     
                 }
             }
             return mr;
         }
-        UnityEngine.Debug.LogError("BAD SINGLEPOINTCROSS");
         return null;
     }
 
