@@ -159,12 +159,12 @@ public class Genetics : MonoBehaviour
     public void NormalSpeed()
     {
         Time.timeScale = 1.0f;
-        textoVelocidad.text = "La velocidad esta normal";
+        textoVelocidad.text = "1x";
     }
 
     public void SpeedBoost()
     {
         Time.timeScale = 2.0f;
-        textoVelocidad.text = "La velocidad esta al doble";
+        textoVelocidad.text = "2x";
     }
 }
